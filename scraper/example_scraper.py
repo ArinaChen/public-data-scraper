@@ -51,21 +51,6 @@ def tidy_excel(xlsx_bytes, commodity):
         print(f"[WARN] {commodity} 無法解析：{e}")
         return None
 
-        if not header_idx:
-            return None
-        header_idx = header_idx[0]
-        df.columns = df.iloc[header_idx]
-        df = df.drop(range(0, header_idx + 1))
-        df = df.melt(id_vars=["Country"], var_name="Year", value_name="Production")
-        df["Commodity"] = commodity
-        df = df[df["Country"].notna() & df["Production"].notna()]
-        df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
-        df["Production"] = pd.to_numeric(df["Production"], errors="coerce")
-        return df.dropna(subset=["Year", "Production"])
-    except Exception as e:
-        print(f"[WARN] {commodity} 無法解析：{e}")
-        return None
-
 def save_csv(df, basename):
     latest = OUTPUT_DIR / f"{basename}_latest.csv"
     dated  = OUTPUT_DIR / f"{basename}_{STAMP}.csv"
