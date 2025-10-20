@@ -25,9 +25,32 @@ def tidy_excel(xlsx_bytes, commodity):
     """整理 USGS 原始 Excel -> 長表"""
     try:
         xls = pd.ExcelFile(BytesIO(xlsx_bytes))
-        df = pd.read_excel(xls, xls.sheet_names[0], header=None)
-        # 嘗試找包含 'Country' 的那一列
-        header_idx = df.index[df.iloc[:, 0].astype(str).str.contains("Country", case=False, na=False)].tolist()
+        # 遍歷所有 sheet，找到包含 "Country" 的那張
+        for sheet in xls.sheet_names:
+            df = pd.read_excel(xls, sheet, header=None)
+            match = df.index[df.astype(str).apply(lambda r: r.str.contains("Country", case=False, na=False)).any(axis=1)]
+            if len(match) > 0:
+                header_idx = match[0]
+                df.columns = df.iloc[header_idx]
+                df = df.drop(range(0, header_idx + 1))
+                if "Country" in df.columns:
+                    break
+        else:
+            print(f"[WARN] {commodity} 沒有偵測到標題行")
+            return None
+
+        df = df.melt(id_vars=["Country"], var_name="Year", value_name="Production")
+        df["Commodity"] = commodity
+        df = df[df["Country"].notna() & df["Production"].notna()]
+        df["Year"] = pd.to_numeric(df["Year"], errors="coerce")
+        df["Production"] = pd.to_numeric(df["Production"], errors="coerce")
+        df = df.dropna(subset=["Year", "Production"])
+        return df
+
+    except Exception as e:
+        print(f"[WARN] {commodity} 無法解析：{e}")
+        return None
+
         if not header_idx:
             return None
         header_idx = header_idx[0]
