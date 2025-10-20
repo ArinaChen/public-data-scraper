@@ -1,14 +1,22 @@
 name: scrape-usgs
+
+# 讓 github-actions[bot] 有權限 push 回來
+permissions:
+  contents: write
+
 on:
-  workflow_dispatch:          # 允許手動觸發
+  workflow_dispatch:
   schedule:
-    - cron: "0 6 * * *"       # 每天 06:00 UTC 自動跑一次（可改）
+    - cron: "0 6 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}   # 使用內建 token
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -28,10 +36,17 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/*.csv
-          if ! git diff --cached --quiet; then
-            git commit -m "ci: update USGS data ($(date -u +%F))"
-            git push
+          mkdir -p data
+          if ls data/*.csv 1> /dev/null 2>&1; then
+            git add data/*.csv
+            if ! git diff --cached --quiet; then
+              git commit -m "ci: update USGS data ($(date -u +%F))"
+              git push
+            else
+              echo "No changes"
+            fi
           else
-            echo "No changes"
+            echo "No CSV produced; skipping commit"
           fi
+
+
