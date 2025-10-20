@@ -35,50 +35,44 @@ def tidy_excel(xlsx_bytes, commodity):
         xls = pd.ExcelFile(BytesIO(xlsx_bytes))
         print(f"[DBG] sheets: {xls.sheet_names}")
 
+        country_keywords = ["country", "country or area", "country/area", "area", "location"]
+
         for sheet in xls.sheet_names:
-            # 不要把第 0 列當 header，整張表讀進來自己找表頭
             df = pd.read_excel(xls, sheet_name=sheet, header=None, dtype=str)
             if df.empty:
                 continue
 
             header_idx = None
-            # 找到同一列同時包含 'country' 且該列至少有 3 個年份欄位
-            for i in range(min(len(df), 200)):  # 前 200 列足夠
-                row = df.iloc[i].astype(str).str.strip()
-                has_country = row.str.contains(r"^country$", case=False, na=False).any()
-                years = row[row.apply(_is_year)]
-                if has_country and len(years) >= 3:
+            # 嘗試找出第一列中出現任何 country_keywords 的行
+            for i in range(min(len(df), 200)):
+                row = df.iloc[i].astype(str).str.strip().str.lower()
+                has_country = row.apply(lambda x: any(k in x for k in country_keywords)).any()
+                year_like = row[row.apply(_is_year)]
+                if has_country and len(year_like) >= 2:
                     header_idx = i
                     break
 
             if header_idx is None:
-                print(f"[DBG] sheet {sheet}: 找不到 header，略過")
                 continue
 
-            # 以 header_idx 作為欄名，並去掉上方雜訊
             header = df.iloc[header_idx].astype(str).str.strip().tolist()
-            work = df.iloc[header_idx + 1 :].copy()
+            work = df.iloc[header_idx + 1:].copy()
             work.columns = header
 
-            # 找 Country 欄（可能大小寫不同或「Country or area」）
+            # 找出「Country」欄位（擴展定義）
             country_col = None
             for c in work.columns:
-                if str(c).strip().lower() == "country":
+                c_str = str(c).strip().lower()
+                if any(k in c_str for k in country_keywords):
                     country_col = c
                     break
+
             if country_col is None:
-                for c in work.columns:
-                    if "country" in str(c).strip().lower():
-                        country_col = c
-                        break
-            if country_col is None:
-                print(f"[DBG] sheet {sheet}: 沒有 Country 欄，略過")
                 continue
 
-            # 只保留 Country + 年份欄位
-            year_cols = [c for c in work.columns if _is_year(c)]
-            if len(year_cols) < 3:
-                print(f"[DBG] sheet {sheet}: 年份欄不足，略過")
+            # 找出「年份」欄位
+            year_cols = [c for c in work.columns if _is_year(str(c))]
+            if len(year_cols) < 2:
                 continue
 
             use = work[[country_col] + year_cols].rename(columns={country_col: "Country"})
@@ -86,7 +80,6 @@ def tidy_excel(xlsx_bytes, commodity):
             long = use.melt(id_vars=["Country"], var_name="Year", value_name="Production")
             long["Commodity"] = commodity
 
-            # 數值化
             long["Year"] = pd.to_numeric(long["Year"], errors="coerce")
             long["Production"] = pd.to_numeric(
                 long["Production"].astype(str).str.replace(",", ""), errors="coerce"
@@ -102,6 +95,7 @@ def tidy_excel(xlsx_bytes, commodity):
     except Exception as e:
         print(f"[WARN] {commodity} 無法解析：{e}")
         return None
+
 
 # =====================
 # 輸出
