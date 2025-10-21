@@ -1,0 +1,280 @@
+Country,Year,Production,Commodity
+"Evansville, IN (Warrick)",2021,269.0,aluminum
+"Ferndale, WA (Intalco) ",2021,279.0,aluminum
+Grand total,2021,1640.0,aluminum
+"Hawesville, KY",2021,250.0,aluminum
+"Magnitude 7 Metals LLC3, New Madrid, MO",2021,263.0,aluminum
+"Massena, NY",2021,130.0,aluminum
+"Mount Holly, SC",2021,229.0,aluminum
+"Sebree, KY",2021,220.0,aluminum
+Total,2021,678.0,aluminum
+Total,2021,699.0,aluminum
+"Evansville, IN (Warrick)",2022,269.0,aluminum
+"Ferndale, WA (Intalco) ",2022,279.0,aluminum
+Grand total,2022,1640.0,aluminum
+"Hawesville, KY",2022,250.0,aluminum
+"Magnitude 7 Metals LLC3, New Madrid, MO",2022,263.0,aluminum
+"Massena, NY",2022,130.0,aluminum
+"Mount Holly, SC",2022,229.0,aluminum
+"Sebree, KY",2022,220.0,aluminum
+Total,2022,678.0,aluminum
+Total,2022,699.0,aluminum
+Australia4,2019,5746.0,cobalt
+Brazil,2019,30.0,cobalt
+Canada5,2019,4365.0,cobalt
+China,2019,1742.0,cobalt
+"Congo (Kinshasa)e, 6",2019,107000.0,cobalt
+"Cubae, 7",2019,3600.0,cobalt
+Finland,2019,1454.0,cobalt
+"Indonesiae, 8",2019,1100.0,cobalt
+"Madagascare, 9",2019,3400.0,cobalt
+Mexicoe,2019,1100.0,cobalt
+"Moroccoe, 10",2019,2200.0,cobalt
+New Caledonia11,2019,1700.0,cobalt
+Papua New Guinea12,2019,2911.0,cobalt
+"Philippinese, 13",2019,4300.0,cobalt
+Russia14,2019,9400.0,cobalt
+South Africa,2019,1027.0,cobalt
+Total,2019,153000.0,cobalt
+"Turkeye, 15",2019,610.0,cobalt
+"United Statese, 14",2019,500.0,cobalt
+Zambia,2019,878.0,cobalt
+Zimbabwe,2019,402.0,cobalt
+Australia4,2020,5631.0,cobalt
+Brazil,2020,160.0,cobalt
+Canada5,2020,4328.0,cobalt
+China,2020,2000.0,cobalt
+"Congo (Kinshasa)e, 6",2020,100000.0,cobalt
+"Cubae, 7",2020,3800.0,cobalt
+Finland,2020,1559.0,cobalt
+"Indonesiae, 8",2020,1100.0,cobalt
+"Madagascare, 9",2020,970.0,cobalt
+Mexicoe,2020,1000.0,cobalt
+"Moroccoe, 10",2020,1900.0,cobalt
+New Caledonia11,2020,2200.0,cobalt
+Papua New Guinea12,2020,2941.0,cobalt
+"Philippinese, 13",2020,4100.0,cobalt
+Russia14,2020,9700.0,cobalt
+South Africa,2020,897.0,cobalt
+Total,2020,147000.0,cobalt
+"Turkeye, 15",2020,2550.0,cobalt
+"United Statese, 14",2020,600.0,cobalt
+Zambia,2020,316.0,cobalt
+Zimbabwe,2020,956.0,cobalt
+Australia4,2021,5232.0,cobalt
+Brazil,2021,266.0,cobalt
+Canada5,2021,3964.0,cobalt
+China,2021,2000.0,cobalt
+"Congo (Kinshasa)e, 6",2021,118000.0,cobalt
+"Cubae, 7",2021,3800.0,cobalt
+Finland,2021,1084.0,cobalt
+"Indonesiae, 8",2021,2700.0,cobalt
+"Madagascare, 9",2021,2500.0,cobalt
+Mexicoe,2021,1100.0,cobalt
+"Moroccoe, 10",2021,1600.0,cobalt
+New Caledonia11,2021,1100.0,cobalt
+Papua New Guinea12,2021,2953.0,cobalt
+"Philippinese, 13",2021,3600.0,cobalt
+Russia14,2021,8000.0,cobalt
+South Africa,2021,355.0,cobalt
+Total,2021,162000.0,cobalt
+"Turkeye, 15",2021,2700.0,cobalt
+"United Statese, 14",2021,650.0,cobalt
+Zambia,2021,247.0,cobalt
+Zimbabwe,2021,345.0,cobalt
+Australia4,2022,5793.0,cobalt
+Brazil,2022,291.0,cobalt
+Canada5,2022,3573.0,cobalt
+China,2022,2000.0,cobalt
+"Congo (Kinshasa)e, 6",2022,144000.0,cobalt
+"Cubae, 7",2022,3700.0,cobalt
+Finland,2022,1235.0,cobalt
+"Indonesiae, 8",2022,9600.0,cobalt
+"Madagascare, 9",2022,4000.0,cobalt
+Mexicoe,2022,600.0,cobalt
+"Moroccoe, 10",2022,1700.0,cobalt
+New Caledonia11,2022,2000.0,cobalt
+Papua New Guinea12,2022,2987.0,cobalt
+"Philippinese, 13",2022,3900.0,cobalt
+Russia14,2022,9200.0,cobalt
+South Africa,2022,250.0,cobalt
+Total,2022,198000.0,cobalt
+"Turkeye, 15",2022,2100.0,cobalt
+"United Statese, 14",2022,500.0,cobalt
+Zambia,2022,251.0,cobalt
+Zimbabwe,2022,241.0,cobalt
+Australia4,2023,5222.0,cobalt
+Brazil,2023,300.0,cobalt
+Canada5,2023,4219.0,cobalt
+China,2023,2000.0,cobalt
+"Congo (Kinshasa)e, 6",2023,175000.0,cobalt
+"Cubae, 7",2023,3300.0,cobalt
+Finland,2023,1057.0,cobalt
+"Indonesiae, 8",2023,19000.0,cobalt
+"Madagascare, 9",2023,4000.0,cobalt
+Mexicoe,2023,300.0,cobalt
+"Moroccoe, 10",2023,1500.0,cobalt
+New Caledonia11,2023,2572.0,cobalt
+Papua New Guinea12,2023,3072.0,cobalt
+"Philippinese, 13",2023,3800.0,cobalt
+Russia14,2023,8700.0,cobalt
+South Africa,2023,378.0,cobalt
+Total,2023,238000.0,cobalt
+"Turkeye, 15",2023,2500.0,cobalt
+"United Statese, 14",2023,500.0,cobalt
+Zambia,2023,207.0,cobalt
+Zimbabwe,2023,336.0,cobalt
+"Albania, laterite ore",2018,4204.0,nickel
+"Australia, undifferentiated or other",2018,160022.0,nickel
+"Brazil, undifferentiated or other",2018,42300.0,nickel
+"Burma, laterite ore",2018,21000.0,nickel
+"Canada, sulfide ore, concentrate",2018,177867.0,nickel
+"China, undifferentiated or other",2018,108200.0,nickel
+"Colombia, laterite ore, dry",2018,47700.0,nickel
+Cote d'Ivoire,2018,3600.0,nickel
+"Cuba, laterite ore",2018,52200.0,nickel
+"Dominican Republic, laterite oree",2018,26000.0,nickel
+"Finland, undifferentiated or other",2018,43572.0,nickel
+"Greece, laterite ore",2018,17925.0,nickel
+"Guatemala, laterite ore",2018,39200.0,nickel
+"Indonesia, laterite ore",2018,606000.0,nickel
+"Kosovo, laterite oree",2018,4790.0,nickel
+Laterite ore,2018,1470000.0,nickel
+"Madagascar, laterite ore, nickel cobalt sulfide4",2018,39000.0,nickel
+"Morocco, undifferentiated or other5",2018,126.0,nickel
+"New Caledonia, laterite ore",2018,216225.0,nickel
+"Norway, undifferentiated or other",2018,210.0,nickel
+"Papua New Guinea, laterite ore, nickel cobalt hydroxide6",2018,35355.0,nickel
+"Philippines, laterite ore",2018,344966.0,nickel
+"Russia, sulfide ore, concentrate",2018,216000.0,nickel
+"South Africa, sulfide ore, concentrate",2018,43236.0,nickel
+Sulfide ore,2018,473000.0,nickel
+Total,2018,2300000.0,nickel
+"Turkey, laterite ore",2018,13600.0,nickel
+Undifferentiated or other,2018,358000.0,nickel
+"United States, sulfide ore, concentrate",2018,17600.0,nickel
+"Zimbabwe, sulfide ore, concentrate",2018,17850.0,nickel
+"Albania, laterite ore",2019,2830.0,nickel
+"Australia, undifferentiated or other",2019,158751.0,nickel
+"Brazil, undifferentiated or other",2019,48600.0,nickel
+"Burma, laterite ore",2019,20000.0,nickel
+"Canada, sulfide ore, concentrate",2019,176021.0,nickel
+"China, undifferentiated or other",2019,108700.0,nickel
+"Colombia, laterite ore, dry",2019,45000.0,nickel
+Cote d'Ivoire,2019,9100.0,nickel
+"Cuba, laterite ore",2019,48900.0,nickel
+"Dominican Republic, laterite oree",2019,40500.0,nickel
+"Finland, undifferentiated or other",2019,38530.0,nickel
+"Greece, laterite ore",2019,13655.0,nickel
+"Guatemala, laterite ore",2019,36300.0,nickel
+"Indonesia, laterite ore",2019,853000.0,nickel
+"Kosovo, laterite oree",2019,3310.0,nickel
+Laterite ore,2019,1670000.0,nickel
+"Madagascar, laterite ore, nickel cobalt sulfide4",2019,39000.0,nickel
+"Morocco, undifferentiated or other5",2019,131.0,nickel
+"New Caledonia, laterite ore",2019,208185.0,nickel
+"Norway, undifferentiated or other",2019,200.0,nickel
+"Papua New Guinea, laterite ore, nickel cobalt hydroxide6",2019,32720.0,nickel
+"Philippines, laterite ore",2019,323325.0,nickel
+"Russia, sulfide ore, concentrate",2019,231000.0,nickel
+"South Africa, sulfide ore, concentrate",2019,43443.0,nickel
+Sulfide ore,2019,481000.0,nickel
+Total,2019,2520000.0,nickel
+"Turkey, laterite ore",2019,4800.0,nickel
+Undifferentiated or other,2019,365000.0,nickel
+"United States, sulfide ore, concentrate",2019,13500.0,nickel
+"Zambia, concentrate",2019,1110.0,nickel
+"Zimbabwe, sulfide ore, concentrate",2019,16593.0,nickel
+"Albania, laterite ore",2020,3764.0,nickel
+"Australia, undifferentiated or other",2020,169344.0,nickel
+"Brazil, undifferentiated or other",2020,116000.0,nickel
+"Burma, laterite ore",2020,22200.0,nickel
+"Canada, sulfide ore, concentrate",2020,168214.0,nickel
+"China, undifferentiated or other",2020,109000.0,nickel
+"Colombia, laterite ore, dry",2020,39900.0,nickel
+Cote d'Ivoire,2020,18600.0,nickel
+"Cuba, laterite ore",2020,49700.0,nickel
+"Dominican Republic, laterite oree",2020,34800.0,nickel
+"Finland, undifferentiated or other",2020,41429.0,nickel
+"Greece, laterite ore",2020,7040.0,nickel
+"Guatemala, laterite ore",2020,50300.0,nickel
+"Indonesia, laterite ore",2020,767000.0,nickel
+"Kosovo, laterite oree",2020,3960.0,nickel
+Laterite ore,2020,1570000.0,nickel
+"Madagascar, laterite ore, nickel cobalt sulfide4",2020,12000.0,nickel
+"Morocco, undifferentiated or other5",2020,142.0,nickel
+"New Caledonia, laterite ore",2020,199375.0,nickel
+"Norway, undifferentiated or other",2020,200.0,nickel
+"Papua New Guinea, laterite ore, nickel cobalt hydroxide6",2020,33659.0,nickel
+"Philippines, laterite ore",2020,328372.0,nickel
+"Russia, sulfide ore, concentrate",2020,233000.0,nickel
+"South Africa, sulfide ore, concentrate",2020,34908.0,nickel
+Sulfide ore,2020,469000.0,nickel
+Total,2020,2500000.0,nickel
+"Turkey, laterite ore",2020,20000.0,nickel
+Undifferentiated or other,2020,458000.0,nickel
+"United States, sulfide ore, concentrate",2020,16700.0,nickel
+"Zambia, concentrate",2020,3226.0,nickel
+"Zimbabwe, sulfide ore, concentrate",2020,16480.0,nickel
+"Albania, laterite ore",2021,4094.0,nickel
+"Australia, undifferentiated or other",2021,150876.0,nickel
+"Brazil, undifferentiated or other",2021,98700.0,nickel
+"Burma, laterite ore",2021,18000.0,nickel
+"Canada, sulfide ore, concentrate",2021,159145.0,nickel
+"China, undifferentiated or other",2021,109000.0,nickel
+"Colombia, laterite ore, dry",2021,43800.0,nickel
+Cote d'Ivoire,2021,20000.0,nickel
+"Cuba, laterite ore",2021,46800.0,nickel
+"Dominican Republic, laterite oree",2021,51600.0,nickel
+"Finland, undifferentiated or other",2021,42163.0,nickel
+"Greece, laterite ore",2021,4685.0,nickel
+"Guatemala, laterite ore",2021,61600.0,nickel
+"Indonesia, laterite ore",2021,1069000.0,nickel
+"Kosovo, laterite oree",2021,4730.0,nickel
+Laterite ore,2021,1950000.0,nickel
+"Madagascar, laterite ore, nickel cobalt sulfide4",2021,34000.0,nickel
+"Morocco, undifferentiated or other5",2021,147.0,nickel
+"New Caledonia, laterite ore",2021,186284.0,nickel
+"Norway, undifferentiated or other",2021,200.0,nickel
+"Papua New Guinea, laterite ore, nickel cobalt hydroxide6",2021,31594.0,nickel
+"Philippines, laterite ore",2021,387047.0,nickel
+"Russia, sulfide ore, concentrate",2021,205000.0,nickel
+"South Africa, sulfide ore, concentrate",2021,31848.0,nickel
+Sulfide ore,2021,430000.0,nickel
+Total,2021,2810000.0,nickel
+"Turkey, laterite ore",2021,11600.0,nickel
+Undifferentiated or other,2021,425000.0,nickel
+"United States, sulfide ore, concentrate",2021,18400.0,nickel
+"Zambia, concentrate",2021,3834.0,nickel
+"Zimbabwe, sulfide ore, concentrate",2021,16213.0,nickel
+"Albania, laterite ore",2022,1574.0,nickel
+"Australia, undifferentiated or other",2022,155007.0,nickel
+"Brazil, undifferentiated or other",2022,88500.0,nickel
+"Burma, laterite ore",2022,10000.0,nickel
+"Canada, sulfide ore, concentrate",2022,143266.0,nickel
+"China, undifferentiated or other",2022,114000.0,nickel
+"Colombia, laterite ore, dry",2022,46400.0,nickel
+Cote d'Ivoire,2022,22000.0,nickel
+"Cuba, laterite ore",2022,46200.0,nickel
+"Dominican Republic, laterite oree",2022,50800.0,nickel
+"Finland, undifferentiated or other",2022,44921.0,nickel
+"Greece, laterite ore",2022,1692.0,nickel
+"Guatemala, laterite ore",2022,48200.0,nickel
+"Indonesia, laterite ore",2022,1579000.0,nickel
+"Kosovo, laterite oree",2022,387.0,nickel
+Laterite ore,2022,2410000.0,nickel
+"Madagascar, laterite ore, nickel cobalt sulfide4",2022,35737.0,nickel
+"Morocco, undifferentiated or other5",2022,157.0,nickel
+"New Caledonia, laterite ore",2022,199951.0,nickel
+"Norway, undifferentiated or other",2022,200.0,nickel
+"Papua New Guinea, laterite ore, nickel cobalt hydroxide6",2022,34302.0,nickel
+"Philippines, laterite ore",2022,345000.0,nickel
+"Russia, sulfide ore, concentrate",2022,222000.0,nickel
+"South Africa, sulfide ore, concentrate",2022,29033.0,nickel
+Sulfide ore,2022,426000.0,nickel
+Total,2022,3270000.0,nickel
+"Turkey, laterite ore",2022,14400.0,nickel
+Undifferentiated or other,2022,429000.0,nickel
+"United States, sulfide ore, concentrate",2022,17500.0,nickel
+"Zambia, concentrate",2022,4059.0,nickel
+"Zimbabwe, sulfide ore, concentrate",2022,14260.0,nickel
