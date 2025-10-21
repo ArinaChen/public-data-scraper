@@ -3,3 +3,6 @@ openpyxl
 requests
 lxml
 beautifulsoup4
+pycountry
+Unidecode
+
