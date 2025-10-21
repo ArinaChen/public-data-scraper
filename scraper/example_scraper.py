@@ -5,6 +5,8 @@ from datetime import date
 
 import pandas as pd
 import requests
+from unidecode import unidecode
+import pycountry
 
 # =====================
 # 設定
@@ -21,14 +23,75 @@ COMMODITIES = {
 STAMP = date.today().isoformat()
 
 # =====================
-# 解析工具
+# 國名清理工具
+# =====================
+ISO_NAMES = set()
+for c in pycountry.countries:
+    for n in filter(None, [c.name, getattr(c, "official_name", None), getattr(c, "common_name", None)]):
+        ISO_NAMES.add(unidecode(n).lower())
+
+ALIASES = {
+    "Congo (Kinshasa)": "Democratic Republic of the Congo",
+    "Congo, Dem. Rep.": "Democratic Republic of the Congo",
+    "Congo": "Republic of the Congo",
+    "Ivory Coast": "Côte d'Ivoire",
+    "Viet Nam": "Vietnam",
+    "Russian Federation": "Russia",
+    "Iran": "Iran, Islamic Republic of",
+    "Syria": "Syrian Arab Republic",
+    "Tanzania": "Tanzania, United Republic of",
+    "Laos": "Lao People's Democratic Republic",
+    "Bolivia": "Bolivia, Plurinational State of",
+    "Venezuela": "Venezuela, Bolivarian Republic of",
+    "Korea, North": "Korea, Democratic People's Republic of",
+    "Korea, South": "Korea, Republic of",
+    "UK": "United Kingdom",
+    "U.S.": "United States",
+    "USA": "United States",
+}
+
+BAD_WORDS = [
+    "total", "grand", "ore", "concentrate", "llc", "inc", "company",
+    "metals", "smelter", "refinery", "plant", "mine", "estimate", "unwrought"
+]
+
+def normalize_country(raw: str) -> str | None:
+    """清理並標準化國家名稱；非國家則回傳 None"""
+    if raw is None or str(raw).strip() == "":
+        return None
+    s = re.sub(r"\([^)]*\)", "", str(raw))        # 括號內註解
+    s = re.sub(r",\s*\d+\b", "", s)               # 逗號後數字註解
+    s = s.strip()
+    s = unidecode(s)                              # 去除重音符號
+    low = s.lower()
+
+    # 排除明顯非國家行
+    if any(w in low for w in BAD_WORDS):
+        return None
+    if "," in s and s not in ("Korea, North", "Korea, South"):
+        return None
+
+    # 別名轉換
+    s = ALIASES.get(s, s)
+
+    # 比對 ISO 國名
+    if unidecode(s).lower() in ISO_NAMES:
+        return s
+    return None
+
+
+# =====================
+# 年份偵測
 # =====================
 YEAR_RE = re.compile(r"^(19|20)\d{2}$")
-
 def _is_year(x: str) -> bool:
     x = str(x).strip()
     return bool(YEAR_RE.match(x))
 
+
+# =====================
+# Excel 解析
+# =====================
 def tidy_excel(xlsx_bytes, commodity):
     """把 USGS ERT Excel 解析成長表：Country | Year | Production | Commodity"""
     try:
@@ -43,7 +106,6 @@ def tidy_excel(xlsx_bytes, commodity):
                 continue
 
             header_idx = None
-            # 嘗試找出第一列中出現任何 country_keywords 的行
             for i in range(min(len(df), 200)):
                 row = df.iloc[i].astype(str).str.strip().str.lower()
                 has_country = row.apply(lambda x: any(k in x for k in country_keywords)).any()
@@ -59,18 +121,15 @@ def tidy_excel(xlsx_bytes, commodity):
             work = df.iloc[header_idx + 1:].copy()
             work.columns = header
 
-            # 找出「Country」欄位（擴展定義）
             country_col = None
             for c in work.columns:
                 c_str = str(c).strip().lower()
                 if any(k in c_str for k in country_keywords):
                     country_col = c
                     break
-
             if country_col is None:
                 continue
 
-            # 找出「年份」欄位
             year_cols = [c for c in work.columns if _is_year(str(c))]
             if len(year_cols) < 2:
                 continue
@@ -85,6 +144,14 @@ def tidy_excel(xlsx_bytes, commodity):
                 long["Production"].astype(str).str.replace(",", ""), errors="coerce"
             )
             long = long.dropna(subset=["Year", "Production"])
+
+            # === 加入「國家清理」 ===
+            before = len(long)
+            long["Country"] = long["Country"].apply(normalize_country)
+            long = long.dropna(subset=["Country"])
+            after = len(long)
+            print(f"[CLEAN] {commodity} removed {before - after} non-country rows, kept {after}")
+
             if not long.empty:
                 print(f"[OK] {commodity} from sheet '{sheet}' → rows: {len(long)}")
                 return long
@@ -107,6 +174,7 @@ def save_csv(df, basename):
     df.to_csv(dated, index=False)
     print("[WRITE]", latest.name, "rows:", len(df))
 
+
 # =====================
 # 主流程
 # =====================
@@ -114,7 +182,11 @@ def run():
     all_data = []
     for metal, url in COMMODITIES.items():
         print(f"[INFO] 抓取 {metal} → {url}")
-        resp = requests.get(url, timeout=60)
+        resp = requests.get(
+            url,
+            timeout=60,
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+        )
         print(f"[INFO] status {metal}: {resp.status_code}")
         if resp.status_code == 200:
             df = tidy_excel(resp.content, metal)
@@ -126,7 +198,6 @@ def run():
             print(f"[WARN] 無法下載 {metal}")
 
     if not all_data:
-        # 寫個探針檔，方便檢查 Actions 是否有跑到這一步
         probe = OUTPUT_DIR / f"usgs_probe_{STAMP}.csv"
         probe.write_text("note,no data parsed on runner\n")
         print("[PROBE] wrote", probe)
@@ -139,4 +210,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
